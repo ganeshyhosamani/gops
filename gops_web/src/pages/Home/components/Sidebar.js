@@ -54,11 +54,18 @@ export default () => {
         <Menu.Item key="pnl" icon={<ContainerOutlined />}>
           <Link to={"/pnl"}>PNL</Link>
         </Menu.Item>
-        <Menu.Item key="topics" icon={<ContainerOutlined />}>
+        {/* <Menu.Item key="topics" icon={<ContainerOutlined />}>
           <Link to={"/topics"}>Accounts</Link>
-        </Menu.Item>
+        </Menu.Item> */}
         <Menu.Item key="login" icon={<ContainerOutlined />}>
-          <Link to={"/login"}>Logout</Link>
+          <Link
+            to={"/login"}
+            onClick={() => {
+              localStorage.clear();
+            }}
+          >
+            Logout
+          </Link>
         </Menu.Item>
         {/* <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
           <Menu.Item key="5">Option 5</Menu.Item>

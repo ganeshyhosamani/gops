@@ -58,9 +58,9 @@ export default function Home() {
             <Route path="/pnl">
               <PNL />
             </Route>
-            <Route path="/topics">
+            {/* <Route path="/topics">
               <Topics />
-            </Route>
+            </Route> */}
           </Switch>
         </div>
       </div>
