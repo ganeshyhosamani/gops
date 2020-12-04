@@ -4,18 +4,42 @@ import Employees from "./Employees";
 import Employee from "./Employee";
 import PNL from "./PNL";
 import DataEntry from "./DataEntry";
-import React from "react";
+import React, { useEffect } from "react";
+import request from "../../request";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
   useParams,
-  useRouteMatch
+  useRouteMatch,
+  useHistory
 } from "react-router-dom";
 import Clients from "./Clients";
 
 export default function Home() {
+  let history = useHistory();
+  useEffect(() => {
+    checkForSession();
+  }, []);
+  const checkForSession = async () => {
+    console.log("begin");
+    // const authorization = localStorage.getItem("authorization");
+    try {
+      let cl = await request.post(
+        "me",
+        {},
+
+        { headers: { authorization: localStorage.getItem("authorization") } }
+      );
+      console.log(cl);
+      if (cl.status === 200);
+      else history.push("/login");
+    } catch (e) {
+      console.log(e);
+      history.push("/login");
+    }
+  };
   return (
     <div
       style={{
