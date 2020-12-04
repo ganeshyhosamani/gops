@@ -16,14 +16,14 @@ module.exports.policies = {
    *                                                                          *
    ***************************************************************************/
 
-  "*": true
+  // '*': true,
   // login: true,
-  // "*": "isLoggedIn",
+  "*": "isLoggedIn",
   // "/login": true,
-  // SessionController: {
-  //   login: true
-  // },
-  // ClientsController: {
-  //   updateClients: true
-  // }
+  SessionController: {
+    login: true
+  },
+  ClientsController: {
+    updateClients: true
+  }
 };
